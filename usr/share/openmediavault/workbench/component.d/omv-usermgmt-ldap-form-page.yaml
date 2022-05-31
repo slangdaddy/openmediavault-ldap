@@ -1,0 +1,102 @@
+version: "1.0"
+type: component
+data:
+  name: omv-usermgmt-ldap-form-page
+  type: formPage
+  config:
+    request:
+      service: LDAP
+      get:
+        method: getSettings
+      post:
+        method: setSettings
+    fields:
+      - type: divider
+        title: _("General settings")
+      - type: checkbox
+        name: enable
+        label: _("Enable")
+        value: false
+      - type: textInput
+        name: host
+        label: _("Host")
+        value: ""
+        validators:
+          required: true
+          #patternType: 'domainNameIP'
+        hint: _("The FQDN or IP address of the server.")
+      - type: numberInput
+        name: port
+        label: _("Port")
+        value: 389
+        validators:
+          required: true
+          min: 1
+          max: 65535
+          patternType: integer
+        hint: _("Specifies the port to connect to.")
+      - type: checkbox
+        name: enablessl
+        label: _("Enable SSL/TLS")
+        value: false
+        hint: _("Enable secure connection.")
+      - type: textInput
+        name: base
+        label: _("BaseDN")
+        value: ""
+        validators:
+          required: true
+        hint: _("Specifies the base distinguished name (DN) to use as search base, e.g. 'dc=example,dc=net'.")
+      - type: textInput
+        name: rootbinddn
+        label: _("Root Bind DN")
+        value: ""
+        validators:
+          required: true
+        hint: _("Specifies the distinguished name (DN) with which to bind to the directory server for lookups, e.g. 'cn=manager,dc=example,dc=net'.")
+      - type: passwordInput
+        name: rootbindpw
+        label: _("Root Bind Password")
+        value: ""
+        validators:
+          required: true
+        hint: _("Specifies the credentials with which to bind.")
+      - type: textInput
+        name: usersuffix
+        label: _("Users suffix")
+        value: "ou=Users"
+        validators:
+          required: true
+        hint: _("Specifies the user suffix, e.g. 'ou=Users'."),
+      - type: textInput
+        name: groupsuffix
+        label: _("Groups suffix")
+        value: "ou=Groups"
+        validators:
+          required: true
+        hint: _("Specifies the group suffix, e.g. 'ou=Groups'."),
+      - type: checkbox
+        name: enablepam
+        label: _("Enable PAM")
+        value: true
+        hint: _("Use LDAP for authentication system-wide along with other authentication sources.")
+      - type: textarea
+        name: extraoptions
+        label: _("Extra options")
+        value: ""
+        validators:
+          required: false
+        hint: _("Please check the <a href='http://linux.die.net/man/5/nss_ldap' target='_blank'>manual page</a> for more details.")
+      - type: textarea
+        name: extraclientoptions
+        label: _("Extra client options")
+        value: ""
+        validators:
+          required: false
+        hint: _("Please check the <a href='http://linux.die.net/man/5/ldap.conf' target='_blank'>manual page</a> for more details.")
+    buttons:
+      - template: submit
+      - template: cancel
+        execute:
+          type: url
+          url: "/usermgmt/ldap"

@@ -35,12 +35,8 @@ case "$1" in
 			pam-auth-update --force --package --remove ldap
 		fi
 
-		########################################################################
-		# Activate package triggers. These triggers are only set during the
-		# package installation.
-		########################################################################
-		dpkg-trigger update-fixperms
-		dpkg-trigger update-locale
+		# Activate trigger to rebuild workbench configuration files.
+	        dpkg-trigger update-workbench
 
 		########################################################################
 		# Initialize and migrate configuration database.
