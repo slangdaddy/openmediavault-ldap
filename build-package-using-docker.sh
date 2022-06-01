@@ -9,7 +9,7 @@ BUILDER_IMAGE="local/$(basename $(pwd))/deb-builder"
 docker build -t ${BUILDER_IMAGE} deb-builder
 
 # Remove old results
-rm -v openmediavault-ldap_*
+rm -fv openmediavault-ldap_*
 
 # Note: We need to mount the parent directory as dpkg-buildpackage writes there
 docker run \
