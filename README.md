@@ -33,8 +33,6 @@ LDAP Server settings within *Users*.
 
 ## Testing Environment and Help
 
-TODO: Update this part
-
 For testing a local LDAP can be setup. See `install-tools.sh`.
 
 Environment:
