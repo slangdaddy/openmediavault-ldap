@@ -4,13 +4,13 @@ XB-Plugin-Section: network
 Priority: optional
 Maintainer: Volker Theile <volker.theile@openmediavault.org>
 Uploaders: Seb36273 <devel@nareo.de>
-Build-Depends: debhelper (>> 7), gettext
+Build-Depends: debhelper (>> 12), gettext
 Standards-Version: 3.9.6
 Homepage: http://www.openmediavault.org
 
 Package: openmediavault-ldap
 Architecture: all
-Depends: openmediavault (>= 5.0), libnss-ldap, libpam-ldap
+Depends: openmediavault (>= 6.0), libnss-ldap, libpam-ldap
 Conflicts: openmediavault-ad
 Priority: optional
 Description: openmediavault Lightweight Directory Access Protocol (LDAP) plugin

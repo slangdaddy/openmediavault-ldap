@@ -1,0 +1,4 @@
+.vagrant
+
+# Generated files from dpkg-buildpackage
+openmediavault-ldap_*

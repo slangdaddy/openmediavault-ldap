@@ -1,0 +1,8 @@
+version: "1.0"
+type: route
+data:
+  url: "/usermgmt/ldap"
+  title: _("LDAP")
+  editing: true
+  notificationTitle: _("Edited LDAP settings.")
+  component: omv-usermgmt-ldap-form-page

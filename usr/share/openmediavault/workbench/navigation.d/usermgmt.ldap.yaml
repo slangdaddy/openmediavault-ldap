@@ -1,0 +1,7 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "usermgmt.ldap"
+  text: _("LDAP")
+  icon: "mdi:folder-account-outline"
+  url: "/usermgmt/ldap"
